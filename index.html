@@ -1,33 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高雄市｜港都之美</title>
 
-<title>帶你遊走高雄｜高雄旅遊景點推薦與自由行攻略</title>
+<style>
+:root{
+    --sky-blue:#87CEEB;      /* 60% 主色 */
+    --navy-blue:#0F3460;     /* 30% 輔色 */
+    --accent:#4FC3F7;        /* 10% 點綴色 */
+    --white:#ffffff;
+    --light:#f5fbff;
+    --shadow:0 10px 25px rgba(0,0,0,0.12);
+}
 
-<meta name="description"
-content="帶你遊走高雄，精選高雄旅遊景點推薦，包括85大樓、美麗島站、愛河等熱門景點，提供自由行與一日遊攻略，探索港都魅力。">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Microsoft JhengHei",sans-serif;
+    scroll-behavior:smooth;
+}
 
-<meta name="keywords"
-content="高雄旅遊,高雄景點,高雄一日遊,高雄自由行,高雄必去景點">
+body{
+    background:var(--light);
+    color:#333;
+    line-height:1.8;
+}
 
-<meta name="author"
-content="帶你遊走高雄">
+/* ===== Sticky Navbar ===== */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(15,52,96,0.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+}
 
-<meta name="robots"
-content="index, follow">
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+}
 
-<link rel="canonical"
-href="https://你的網域名稱.com/">
+.logo{
+    color:white;
+    font-size:1.5rem;
+    font-weight:bold;
+    letter-spacing:2px;
+}
 
-<!-- Open Graph -->
-<meta property="og:title"
-content="帶你遊走高雄｜高雄旅遊景點推薦與自由行攻略">
+.nav-links{
+    display:flex;
+    gap:25px;
+}
 
-<meta property="og:description"
-content="精選高雄熱門景點與自由行攻略，帶你探索港都魅力。">
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    font-weight:500;
+}
 
-<meta property="og:type"
-content="website">
+.nav-links a:hover{
+    color:var(--accent);
+    transform:translateY(-2px);
+}
 
-<meta property="og:locale"
-content="zh_TW">
+/* ===== Hero Section ===== */
+.hero{
+    height:90vh;
+    background:
+    linear-gradient(
+        rgba(15,52,96,0.55),
+        rgba(15,52,96,0.45)
+    ),
+    url("kaohsiung-85.easytravel.com.tw-banner-1024.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:850px;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+    text-shadow:2px 2px 15px rgba(0,0,0,0.4);
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    text-decoration:none;
+    padding:14px 32px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(79,195,247,0.4);
+}
+
+/* ===== About ===== */
+.about{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 30px;
+    text-align:center;
+}
+
+.section-title{
+    color:var(--navy-blue);
+    font-size:2.4rem;
+    margin-bottom:20px;
+}
+
+.about p{
+    max-width:900px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* ===== Attractions ===== */
+.attractions{
+    background:white;
+    padding:80px 30px;
+}
+
+.grid-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(0,0,0,0.18);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h3{
+    color:var(--navy-blue);
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+}
+
+/* ===== Footer ===== */
+footer{
+    background:var(--navy-blue);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* ===== RWD ===== */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .nav-container{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">高雄市 Kaohsiung</div>
+
+        <div class="nav-links">
+            <a href="#home">首頁</a>
+            <a href="#about">城市介紹</a>
+            <a href="#attractions">熱門景點</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>高雄市 Kaohsiung</h1>
+        <p>
+            臺灣最具魅力的海洋城市，融合港灣風情、
+            現代藝術與多元文化。
+        </p>
+        <a href="#about" class="btn">探索港都</a>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <h2 class="section-title">港都之美</h2>
+
+    <p>
+        高雄是臺灣南部的最大都會區與第一大港口，
+        素有「港都」之稱。氣候溫暖宜人、擁有豐富的山海河港景觀及便利的捷運輕軌網絡，
+        結合了現代藝文與傳統眷村、客家及原民文化，
+        是一座充滿活力與熱情的海洋城市。
+    </p>
+</section>
+
+<!-- Attractions -->
+<section class="attractions" id="attractions">
+
+    <h2 class="section-title" style="text-align:center;margin-bottom:50px;">
+        熱門景點
+    </h2>
+
+    <div class="grid-container">
+
+        <div class="card">
+            <img src="kaohsiung-85.easytravel.com.tw-banner-1024.jpg" alt="85大樓">
+            <div class="card-content">
+                <h3>85大樓</h3>
+                <p>
+                    高雄最具代表性的地標建築之一，
+                    曾是臺灣最高摩天大樓，
+                    可欣賞壯麗港灣與城市天際線。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="高.jpg" alt="美麗島站">
+            <div class="card-content">
+                <h3>美麗島捷運站</h3>
+                <p>
+                    擁有世界知名的「光之穹頂」，
+                    絢麗的彩繪玻璃藝術讓車站成為高雄必訪景點。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1000&q=80" alt="愛河">
+            <div class="card-content">
+                <h3>愛河</h3>
+                <p>
+                    高雄最浪漫的河岸景觀，
+                    白天悠閒愜意，夜晚燈光映照水面，
+                    展現港都迷人的風采。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Kaohsiung City Tourism Website ｜ 探索港都高雄
+</footer>
+
+</body>
+</html>
